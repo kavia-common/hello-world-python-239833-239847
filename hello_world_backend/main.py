@@ -39,6 +39,34 @@ def root() -> str:
 
 # PUBLIC_INTERFACE
 @app.get(
+    "/greet",
+    response_class=PlainTextResponse,
+    tags=["hello"],
+    summary="Greet",
+    description="Returns a plain-text greeting.",
+    operation_id="greet",
+)
+def greet() -> str:
+    """Return a plain-text greeting."""
+    return "Hello"
+
+
+# PUBLIC_INTERFACE
+@app.get(
+    "/bye",
+    response_class=PlainTextResponse,
+    tags=["hello"],
+    summary="Bye",
+    description="Returns a plain-text goodbye message.",
+    operation_id="bye",
+)
+def bye() -> str:
+    """Return a plain-text goodbye message."""
+    return "Bye"
+
+
+# PUBLIC_INTERFACE
+@app.get(
     "/hello",
     response_class=PlainTextResponse,
     tags=["hello"],
